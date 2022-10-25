@@ -15,8 +15,8 @@ import plotly.express as px
 import pydeck as pdk
 
 #read data
-telco_data_scored = helper.load_data('churn_prediction.csv')
-master_data_scored = helper.load_data('master_dataset_scored.csv')
+telco_data_scored = pd.read_csv('churn_prediction.csv')
+master_data_scored = pd.read_csv('master_dataset_scored.csv')
 pd.set_option('mode.chained_assignment', None)
 master_data_scored.rename(columns = {'ypredfull':'PredClass','ypredptfull':'PredProb'}, inplace=True)
 
