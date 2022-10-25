@@ -13,7 +13,7 @@ import plotly.graph_objects as go
 
 
 #read data
-telco_data = helper.load_data('master_dataset_scored.csv')
+telco_data = pd.read_csv('master_dataset_scored.csv')
 
 st.set_page_config(
     page_title="Customer Churn Analysis",
