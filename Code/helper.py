@@ -14,7 +14,7 @@ from pathlib import Path
 #function to load data
 def load_data(filename) -> pd.DataFrame:
     dir = Path.cwd().parent
-    path = dir/'Raw_Data'/filename
+    path = dir/filename
     print(path)
     if filename.split('.')[1]== 'xlsx':
         data = pd.read_excel(path)
