@@ -15,7 +15,7 @@ import plotly.express as px
 
 
 #read data
-telco_data = helper.load_data('master_dataset.csv')
+telco_data = pd.read_csv('master_dataset.csv')
 
 st.set_page_config(
     page_title="Customer Churn Analysis",
