@@ -46,8 +46,8 @@ with tab11:
             contract_flag = st.number_input('Insert contract type', value =2, min_value=0,max_value=2)
         
         with colf2:
-            mc_hh_ratio = st.number_input('Insert monthly charge by household size',step=10, value =10)
-            Number_of_Referrals = st.number_input('Insert referral count', step=3, value =9)
+            mc_hh_ratio = st.number_input('Insert monthly charge by household size',step=10, value =10, min_value=0, max_value=200)
+            Number_of_Referrals = st.number_input('Insert referral count', step=3, value =9, min_value=0, max_value=15)
         submitted = st.form_submit_button("Get churn score")
         if submitted:
             try:
