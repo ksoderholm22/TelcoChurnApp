@@ -42,8 +42,8 @@ with tab11:
         
         colf1, colf2 = st.columns(2)
         with colf1:
-            internet_type_flag = st.number_input('Insert internet plan', value = 0)
-            contract_flag = st.number_input('Insert contract type', value =2)
+            internet_type_flag = st.number_input('Insert internet plan', value = 0, min_value=0,max_value=2)
+            contract_flag = st.number_input('Insert contract type', value =2, min_value=0,max_value=2)
         
         with colf2:
             mc_hh_ratio = st.number_input('Insert monthly charge by household size',step=10, value =10)
