@@ -54,13 +54,14 @@ with tab11:
                 churn_score = telco_data_scored.loc[(round(telco_data_scored['internet_type_flag'])== internet_type_flag) & (round(telco_data_scored['contract_flag'])== contract_flag) & (helper.myround(telco_data_scored['mc_hh_ratio'],10) == mc_hh_ratio) & (helper.myround(telco_data_scored['Number_of_Referrals'],3) == Number_of_Referrals ),'ypredptfull']
                 churn_score2=churn_score.mean()
                 churn_score3=churn_score2.round(4)
+                st.write('With a churn score of: ', churn_score3)
+                if churn_score3>0.7:
+                st.write('This customer is at **high** risk of churn')
+                else: 
+                st.write('This customer is at **low** risk of churn')
             except:
                 st.write('No customers in this segment')
-            st.write('With a churn score of: ', churn_score3)
-            if churn_score3>0.7:
-                st.write('This customer is at **high** risk of churn')
-            else: 
-                st.write('This customer is at **low** risk of churn')
+
 with tab12:
     st.dataframe(master_data_scored[['Customer_ID','contract_flag','Number_of_Referrals','tenure_age_ratio','Age','mc_hh_ratio','internet_type_flag','hh_size','Monthly_Charge','City','Zip_Code','Location_ID','PredClass','PredProb']])
     
