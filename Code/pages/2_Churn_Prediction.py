@@ -44,19 +44,18 @@ with tab11:
         with colf1:
             internet_type_flag = st.number_input('Insert internet plan', value = 0)
             contract_flag = st.number_input('Insert contract type', value =2)
-            Number_of_Referrals = st.number_input('Insert referral count', value =8)
+        
         with colf2:
-            hh_size = st.number_input('Insert household size', value =3)
-            Monthly_Charge = st.number_input('Insert monthly charge',step=5, value = 35)
-            mc_hh_ratio = st.number_input('Insert monthly charge by household size',step=5, value =10)
+            mc_hh_ratio = st.number_input('Insert monthly charge by household size',step=10, value =10)
+            Number_of_Referrals = st.number_input('Insert referral count', step=3, value =9)
         submitted = st.form_submit_button("Get churn score")
         if submitted:
             try:
-                churn_score = telco_data_scored.loc[(helper.myround(telco_data_scored['Monthly_Charge'],5)==Monthly_Charge) & (round(telco_data_scored['internet_type_flag'])== internet_type_flag) & (round(telco_data_scored['contract_flag'])== contract_flag) & (round(telco_data_scored['hh_size'])== hh_size) & (helper.myround(telco_data_scored['mc_hh_ratio'],5) == mc_hh_ratio) & (round(telco_data_scored['Number_of_Referrals']) == Number_of_Referrals ),'ypredptfull']
+                churn_score = telco_data_scored.loc[(round(telco_data_scored['internet_type_flag'])== internet_type_flag) & (round(telco_data_scored['contract_flag'])== contract_flag) & (helper.myround(telco_data_scored['mc_hh_ratio'],10) == mc_hh_ratio) & (helper.myround(telco_data_scored['Number_of_Referrals'],3) == Number_of_Referrals ),'ypredptfull']
                 churn_score2=churn_score.mean()
                 churn_score3=churn_score2.round(4)
             except:
-                churn_score = 0.3
+                st.write('No customers in this segment')
             st.write('With a churn score of: ', churn_score3)
             if churn_score3>0.7:
                 st.write('This customer is at **high** risk of churn')
