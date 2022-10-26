@@ -55,9 +55,11 @@ with tab11:
                 churn_score2=churn_score.mean()
                 churn_score3=churn_score2.round(4)
                 st.write('With a churn score of: ', churn_score3)
-                if churn_score3>0.7:
+                if churn_score3>0.5:
                     st.write('This customer is at **high** risk of churn')
-                else: 
+                else if churn_score3>0.3:
+                    st.write('This customer is at **medium** risk of churn')
+                else:
                     st.write('This customer is at **low** risk of churn')
             except:
                 st.write('No customers in this segment')
