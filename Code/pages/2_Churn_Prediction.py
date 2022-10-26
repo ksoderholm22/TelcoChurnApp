@@ -57,7 +57,7 @@ with tab11:
                 st.write('With a churn score of: ', churn_score3)
                 if churn_score3>0.5:
                     st.write('This customer is at **high** risk of churn')
-                else if churn_score3>0.3:
+                if 0.3<churn_score3<0.5:
                     st.write('This customer is at **medium** risk of churn')
                 else:
                     st.write('This customer is at **low** risk of churn')
